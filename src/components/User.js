@@ -204,7 +204,7 @@ return (
 
                                         <hr />
                                         <form onSubmit={reqDelete}>
-                                            <div className="w-100 d-flex justify-content-center"> <button className="btn btn-danger d-block btn-user w-100 google" type="submit">Delete Accont</button></div></form>
+                                            <div className="w-100 d-flex justify-content-center"> <button className="btn btn-danger d-block btn-user w-100 google" type="submit">Delete Account</button></div></form>
                                         <hr />
                                     </div>
                                 </div>
