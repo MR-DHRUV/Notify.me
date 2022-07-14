@@ -1,4 +1,4 @@
-# Getting Started React App
+# Local Setup
 ### `npm i`
 Installs the required npm packages
 
