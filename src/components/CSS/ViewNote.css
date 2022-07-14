@@ -1,0 +1,25 @@
+* {
+  word-wrap: break-word !important;
+}
+
+#timeInput {
+  width: 20vw;
+  display: none;
+  padding-bottom: 2.5rem !important;
+}
+
+@media (max-width: 600px) {
+  #timeInput {
+    width: 70vw;
+  }
+}
+.preview {
+  word-wrap: break-word !important;
+}
+
+.notedesc{
+padding: 2rem 0rem 1rem 0rem !important;
+}
+.notecontainer{
+    height: fit-content !important;
+}

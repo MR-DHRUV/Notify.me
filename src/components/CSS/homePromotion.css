@@ -1,0 +1,18 @@
+@media (width<1400px) {
+  .reminder {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reminder-img {
+    width: 80vw !important;
+  }
+
+
+}
+
+.reminder-img {
+  width: 36vw;
+}

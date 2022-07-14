@@ -1,0 +1,21 @@
+.imgcontainer{
+    background-image: url('https://images.unsplash.com/photo-1483546416237-76fd26bbcdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    height: 80vh;
+    background-position: 43vw;
+}
+
+.google{
+    background-color: #e53a13 !important;
+    border-color: #e53a13 !important;   
+}
+
+.myLink:hover{
+    color: #3763f4;
+}
+
+body,html{
+    /* background: linear-gradient(135deg, #f8faff, #fef7fd) !important; */
+}
+.mycontainer{
+    min-height: 90vh;
+}

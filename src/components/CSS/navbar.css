@@ -1,0 +1,49 @@
+.my-profile-btn {
+  padding: 3px !important;
+  border: 0px solid #3763f4;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent !important;
+  color: #3763f4;
+  margin-left: 100px;
+}
+
+.my-profile-btn:hover {
+  background-color: #3763f4 !important;
+  color: white;
+}
+.my-profile-btn:active,
+.my-profile-btn:focus {
+  background-color: white !important;
+  color: #3763f4 !important;
+}
+
+@media (max-width: 765px) {
+  .my-profile-btn {
+    margin-left: 0px;
+  }
+}
+
+.nav-link :hover {
+  color: #3763f4 !important;
+}
+.nav-link {
+  /* color: #3763f4 !important; */
+  font-size: 1.1rem;
+}
+.mySocial:hover{
+    color: #3763f4 !important;
+}
+
+#hideMsg{
+  display: none;
+}
+#hideMsg1{
+  display: none;
+}
+
+.navImg{
+  width: 40px;
+}
