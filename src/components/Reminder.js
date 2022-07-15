@@ -205,7 +205,7 @@ const Reminder = (props) => {
                     </div>
                 </div>
                 <div className="mx-3 mt-2">{reminders.length === 0 && "Add a reminder by clicking on add button"}</div>
-                <div className="mx-3 mt-2">{upcommingReminders.length === 0 && "Notnhing to remind"}</div>
+                {/* <div className="mx-3 mt-2">{upcommingReminders.length === 0 && "Notnhing to remind"}</div> */}
 
                 {!props.hide ? <div className="row mx-auto my-5 py-3">
                     <div className="col mt-0 pt-0 myCol">
@@ -234,7 +234,6 @@ const Reminder = (props) => {
 
                                             return <ReminderItem handleAdd={handleAdd} key={reminder._id} id={reminder._id} title={reminder.title} time={reminder.timeToRemind} body={reminder.description} updateReminder={handleAddReminder} stateConroller={setReminder} theme={send} />
                                         })}
-                                        {reminders.length === 0 && "All Empty Here"}
                                         {/* <ReminderItem title='jjj' time={30} body='kfcsdjfhefghueih' /> */}
                                         {/* <ReminderItem title='jjj' time={30} body='kfcsdjfhefghueih' />
                                         <ReminderItem title='jjj' time={30} body='kfcsdjfhefghueih' />

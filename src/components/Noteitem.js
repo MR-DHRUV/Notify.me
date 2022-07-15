@@ -59,7 +59,7 @@ const Noteitem = (props) => {
                     </div>
                 </div>
                 <div class="card-body Mycard-body card-text textSmall">
-                    <ReactMarkdown>{props.note.description.length <= 300 ? props.note.description.slice(0, 300) : props.note.description.slice(0, 300) + ' ...'}</ReactMarkdown>
+                    <ReactMarkdown>{props.note.description.length <= 250 ? props.note.description.slice(0, 250) : props.note.description.slice(0, 250) + ' ...'}</ReactMarkdown>
                 </div>
             </div>
 
