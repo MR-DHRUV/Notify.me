@@ -155,6 +155,7 @@ const Reminder = (props) => {
                                     </div>
 
                                     <div className="mb-3">
+                                        {window.innerWidth <1000 ? <p className='text-start mb-0 pb-1'>Time :</p> : ''}
                                         <input className="form-control" type="datetime-local" name="time"
                                             placeholder="Time" required={true} value={reminder.time} onChange={onChange} minLength={1} />
                                         <p className='mx-2 mb-0' id='timeWarning'>Invalid Time</p>
