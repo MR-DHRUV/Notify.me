@@ -25,7 +25,7 @@ const Home = (props) => {
     if (localStorage.getItem('token')) {
       getAllNotes()
       const setNotes = async () => {
-        let newNotes = notes.slice(0, 6)
+        let newNotes = notes.slice(0, 3)
         setLatestNotes(newNotes)
       }
       setNotes()

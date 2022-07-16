@@ -47,3 +47,7 @@
 .navImg{
   width: 40px;
 }
+
+.nav-link:focus-visible .nav-item:focus-visible{
+  border: 0px !important;
+}
