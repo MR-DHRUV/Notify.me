@@ -1,25 +1,37 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "Notify",
+  "short_name": "Notify",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "./maskable_icon.png",
+      "type": "image/png",
+      "sizes": "365x365",
+      "purpose" : "any maskable"
     },
     {
-      "src": "logo192.png",
+      "src": "./writing256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./writing384.png",
+      "type": "image/png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "./writing192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "./writing.png",
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
