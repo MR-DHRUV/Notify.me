@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import noteContext from '../context/notes/noteContext';
 import BackButton from './BackButton';
 import ReactMde from 'react-mde';
@@ -36,7 +36,7 @@ const ViewNote = (props) => {
         if (props.data.title === undefined || props.data.title === '' || props.data.tag === null) {
             history.push('/signin');
         }
-        console.log(props.data.title);
+        // console.log(props.data.title);
         // eslint-disable-next-line
     }, [])
 
@@ -62,7 +62,7 @@ const ViewNote = (props) => {
 
     const handleUpdate = async (event) => {
         event.preventDefault();
-        console.log(props.data._id);
+        // console.log(props.data._id);
         await editNote(props.data._id, note.title, value, note.tag)
         setEditorMode(false)
     }
@@ -128,7 +128,7 @@ const ViewNote = (props) => {
 
 
 
-    console.log(props);
+    // console.log(props);
     return (
         <>
             {editorMode === false ? <section className="py-4 minheight">

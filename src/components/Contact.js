@@ -35,7 +35,7 @@ const Contact = () => {
             return
         }
 
-        console.log(query);
+        // console.log(query);
         const response = await fetch('https://api-authify.herokuapp.com/notes/mailer', {
             method: 'POST',
             headers: {
@@ -45,7 +45,7 @@ const Contact = () => {
             body: JSON.stringify({ subject: query.subject, message: query.message, contactNo: Number(query.contactNo) })
         })
         const json = await response.json()
-        console.log(json);
+        // console.log(json);
         if (json.success === true) {
             setQuery({ subject: ' ', message: '', contactNo: '' })
             setQuery({ subject: ' ', message: '', contactNo: '' })

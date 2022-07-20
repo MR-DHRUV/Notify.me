@@ -6,7 +6,7 @@ import reminderContext from '../context/notes/reminderContext';
 const ReminderItem = (props) => {
     const history = useHistory()
     const context = useContext(reminderContext);
-    const { editReminder, deleteReminder } = context;
+    const { deleteReminder } = context;
     const colors = ['info', 'success', 'primary', 'secondary'];
 
 

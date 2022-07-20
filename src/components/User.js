@@ -72,11 +72,11 @@ const User = (props) => {
         })
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         if (data.success === true) {
             setSuccess(true);
-            console.log(success)
+            // console.log(success)
         }
 
     }

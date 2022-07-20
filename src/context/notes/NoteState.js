@@ -21,7 +21,7 @@ const NoteState = (props) => {
     const json = await response.json();
     const set = json.reverse()
     await setNotes(set);
-    console.log(notes);
+    // console.log(notes);
   }
 
   const addNote = async (title, description, tag) => {
@@ -51,7 +51,7 @@ const NoteState = (props) => {
 
   //delete
   const deleteNote = async (id) => {
-    console.log(localStorage.getItem('token'));
+    // console.log(localStorage.getItem('token'));
 
     //eslint-disable-next-line
     const response = await fetch(`https://api-authify.herokuapp.com/notes/delete_note/${id}`, {
@@ -100,7 +100,7 @@ const NoteState = (props) => {
 
   const noteReminder = async(id,time) => {
 
-    console.log('calling');
+    // console.log('calling');
 
     const response = await fetch(`https://api-authify.herokuapp.com/notes//remind/${id}`, {
       method: 'PUT',
@@ -110,8 +110,10 @@ const NoteState = (props) => {
       },
       body : JSON.stringify({time})
     });
+    
+    // eslint-disable-next-line
     const json = await response.json()
-    console.log(json);
+    // console.log(json);
   }
 
 

@@ -50,7 +50,7 @@ const ReminderState = (props) => {
 
   //delete
   const deleteReminder = async (id) => {
-    console.log(localStorage.getItem('token'));
+    // console.log(localStorage.getItem('token'));
     
     //eslint-disable-next-line
     const response = await fetch(`https://api-authify.herokuapp.com/reminder/delete_reminder/${id}`, {

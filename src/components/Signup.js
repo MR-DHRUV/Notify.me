@@ -42,7 +42,7 @@ const Signup = (props) => {
                 body: JSON.stringify({ name: name, email: credentials.email, password: credentials.password , authcode : Number(credentials.verificationCode) })
             });
             const json = await response.json();
-            console.log(json);
+            // console.log(json);
             if (json.success === true) {
                 props.showAlert('Account Created Successfully', 'success');
                 await localStorage.setItem('token', json.authToken)
@@ -65,7 +65,7 @@ const Signup = (props) => {
         })
 
         const preConnectResponse = await preConnect.json();
-        console.log(preConnectResponse.success);
+        // console.log(preConnectResponse.success);
 
         if (preConnectResponse.success === true) {
 
@@ -81,7 +81,7 @@ const Signup = (props) => {
 
                 let data = undefined;
                 // e.preventDefault();
-                console.log('try block');
+                // console.log('try block');
 
                 while (data === undefined || data === null) {
                     const response = await fetch(`https://api-authify.herokuapp.com/auth/g/user/${uri}`, {
@@ -89,8 +89,8 @@ const Signup = (props) => {
                     })
                     const md = await response.json()
 
-                    console.log('fetched')
-                    console.log(md);
+                    // console.log('fetched')
+                    // console.log(md);
                     data = md;
                     localStorage.setItem('token', md.authToken);
                     history.push('/dashboard');
@@ -114,7 +114,7 @@ const Signup = (props) => {
             body: JSON.stringify({ email: credentials.email})
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         if (json.success === true) {
             setSendOtp(true)
             props.showAlert(json.message, 'success');

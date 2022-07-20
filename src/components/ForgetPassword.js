@@ -20,7 +20,7 @@ const ForgetPassword = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault(); // this will prevent reload
-        console.log(JSON.stringify({ email: credentials.email }));
+        // console.log(JSON.stringify({ email: credentials.email }));
 
         const response = await fetch('https://api-authify.herokuapp.com/fogotpassword', {
             method: 'POST',
@@ -31,7 +31,7 @@ const ForgetPassword = () => {
         })
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         if (data.success === true) {
             setSuccess(true);
@@ -52,9 +52,10 @@ const ForgetPassword = () => {
             body: JSON.stringify({ email: credentials.email, authcode: Number(credentials.verifyToken), password: credentials.password })
         })
 
+        // eslint-disable-next-line
         const data = await response.json();
         history.push('/signin')
-        console.log(data);
+        // console.log(data);
 
     }
 

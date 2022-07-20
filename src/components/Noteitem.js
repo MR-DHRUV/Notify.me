@@ -1,18 +1,18 @@
 import React from 'react'
-import { useContext } from 'react';
-import noteContext from '../context/notes/noteContext';
+// import { useContext } from 'react';
+// import noteContext from '../context/notes/noteContext';
 import "./Noteitem.css";
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
 
 
 const Noteitem = (props) => {
-    const context = useContext(noteContext);
-    const { deleteNote } = context;
+    // const context = useContext(noteContext);
+    // const { deleteNote } = context;
     const history = useHistory();
 
     const viewNote = async () => {
-        console.log(props.note._id);
+        // console.log(props.note._id);
         props.setViewNoteTheme(props.theme)
         props.setnoteData(props.note)
         history.push('/note')

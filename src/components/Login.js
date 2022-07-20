@@ -25,7 +25,7 @@ const Login = (props) => {
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
         })
         const json = await response.json()
-        console.log(json);
+        // console.log(json);
 
         if (json.success === true) {
             //save the auth token and  redirect
@@ -52,7 +52,7 @@ const Login = (props) => {
         })
 
         const preConnectResponse = await preConnect.json();
-        console.log(preConnectResponse.success);
+        // console.log(preConnectResponse.success);
 
         if (preConnectResponse.success === true) {
 
@@ -68,7 +68,7 @@ const Login = (props) => {
 
                 let data = undefined;
                 // e.preventDefault();
-                console.log('try block');
+                // console.log('try block');
 
                 while (data === undefined || data === null) {
                     const response = await fetch(`https://api-authify.herokuapp.com/auth/g/user/${uri}`, {
@@ -76,8 +76,8 @@ const Login = (props) => {
                     })
                     const md = await response.json()
 
-                    console.log('fetched')
-                    console.log(md);
+                    // console.log('fetched')
+                    // console.log(md);
                     data = md;
                     localStorage.setItem('token', md.authToken);
                     history.push('/dashboard');

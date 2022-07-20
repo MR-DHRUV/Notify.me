@@ -1,12 +1,12 @@
 import React from 'react'
 import HeroImg from './images/hero.svg'
 import serviceImg1 from './images/Untitled (100 × 40 px) (3).svg'
-import serviceImg2 from './images/Untitled (100 × 40 px) (1).svg'
+// import serviceImg2 from './images/Untitled (100 × 40 px) (1).svg'
 import serviceImg3 from './images/Untitled (100 × 40 px) (2).svg'
 import reminderImg from './images/Mob.svg'
 import './CSS/homePromotion.css'
 import { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
 
 
@@ -30,7 +30,7 @@ const HomePromotion = (props) => {
 
         if (email) {
             event.preventDefault();
-            console.log(email)
+            // console.log(email)
             props.emailUpdater(email);
             history.push('/signup')
         }
