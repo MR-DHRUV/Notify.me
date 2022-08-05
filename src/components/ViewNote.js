@@ -131,7 +131,7 @@ const ViewNote = (props) => {
             let ISTTime = new Date(dateNI.getTime() + offset);
             // console.log("IST" , ISTTime);
     
-            const timeDiffrenceMs = (new Date(time) - ISTTime)
+            const timeDiffrenceMs = (new Date(time) - Date.now())
 
             setTimeout(() => {      
                 addNotification({
