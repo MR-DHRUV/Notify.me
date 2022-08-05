@@ -8,6 +8,7 @@ import noteContext from '../context/notes/noteContext';
 import BackButton from './BackButton';
 import ReactMde from 'react-mde';
 import './CSS/ViewNote.css'
+import addNotification from 'react-push-notification';
 
 
 const ViewNote = (props) => {
@@ -20,10 +21,10 @@ const ViewNote = (props) => {
     const [value, setValue] = React.useState(props.data.description);
     const [selectedTab, setSelectedTab] = React.useState("write");
     const [editorMode, setEditorMode] = useState(false)
-    
-    const colors = ['info','success' , 'primary', 'secondary'];
-  
-    const monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+
+    const colors = ['info', 'success', 'primary', 'secondary'];
+
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const date = new Date(props.data.date)
     const dateConstructor = date.getDate() + ' ' + monthNames[date.getMonth()] + ', ' + date.getFullYear()
 
@@ -121,9 +122,28 @@ const ViewNote = (props) => {
         if (time) {
             noteReminder(props.data._id, time);
             document.getElementById('timeInput').style.display = ('none');
-            setTime('')
+            setTime('');
+
+
+            const dateNI = new Date();
+            let ISToffSet = 330; //IST is 5:30; i.e. 60*5+30 = 330 in minutes 
+            let offset = ISToffSet * 60 * 1000;
+            let ISTTime = new Date(dateNI.getTime() + offset);
+            // console.log("IST" , ISTTime);
+    
+            const timeDiffrenceMs = (new Date(time) - ISTTime)
+
+            setTimeout(() => {      
+                addNotification({
+                    title: 'Reminder',
+                    message: `${note.title}\n${value.length <= 150 ? value.slice(0, 150) : value.slice(0, 150) + ' ...'} `,
+                    duration: 100000, //optional, default: 5000, 
+                    native: true // when using native, your OS will handle theming.  
+                });
+            }, timeDiffrenceMs);
 
         }
+
     }
 
 
@@ -168,7 +188,7 @@ const ViewNote = (props) => {
                 <div className="fixed-bottom w-100 newnotebutton d-flex flex-row">
                     <form className='flex-row mb-5' id='timeInput' onSubmit={handleRemind}>
                         <input className="form-control form-control-user" placeholder='Time' name='time' required value={time} onChange={onChangeTime} type="datetime-local" id="exampleInputEmail" aria-describedby="emailHelp" />
-                        <button className="btn btn-outline-primary d-block btn-user px-3 mx-2" type="submit"> -&gt; </button>
+                        <button className="btn btn-outline-primary d-block btn-user px-3 mx-2 remindNotebtn" type="submit"> -&gt; </button>
                     </form>
 
                     <div className="floatingIconContainer">

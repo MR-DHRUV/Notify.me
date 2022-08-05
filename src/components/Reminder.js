@@ -6,8 +6,13 @@ import { useHistory } from 'react-router-dom';
 import reminderContext from '../context/notes/reminderContext';
 import ReminderItem from './ReminderItem';
 import './CSS/reminder.css'
+import addNotification from 'react-push-notification';
 
 const Reminder = (props) => {
+
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
     const [reminder, setReminder] = useState({ time: null, title: '', description: '', id: null })
     const onChange = (event) => {
@@ -76,6 +81,7 @@ const Reminder = (props) => {
             document.getElementById('addBlur').style.display = 'flex';
             document.getElementById('addBlur').style.justifyContent = 'center';
             document.getElementById('getBlur').style.filter = 'blur(10px)';
+            window.scrollTo(0,0);
             if (window.innerWidth > 1200) {
                 // document.getElementById('addBlur').style.alignItems = 'center';
             }
@@ -119,8 +125,32 @@ const Reminder = (props) => {
             addReminder(reminder.title, reminder.description, reminder.time);
             handleBack()
         }
+
+
         setReminder({ time: null, title: '', description: '', id: null })
         getAllReminders()
+
+        const dateNI = new Date();
+        let ISToffSet = 330; //IST is 5:30; i.e. 60*5+30 = 330 in minutes 
+        let offset = ISToffSet * 60 * 1000;
+        let ISTTime = new Date(dateNI.getTime() + offset);
+        // console.log("IST" , ISTTime);
+
+        const timeDiffrenceMs = (new Date(reminder.time) - ISTTime)
+        console.log("Diffrence : ", timeDiffrenceMs );
+        // setTimeout(() => {
+        // }, timeDiffrenceMs);
+
+        sleep(timeDiffrenceMs).then(() => {
+
+            addNotification({
+                title: 'Reminder',
+                message: `${reminder.title}\n${reminder.description} `,
+                duration: 100000, //optional, default: 5000, 
+                native: true // when using native, your OS will handle theming.  
+            });
+        })
+
         chkPrev()
         chkUpk()
 
@@ -155,7 +185,7 @@ const Reminder = (props) => {
                                     </div>
 
                                     <div className="mb-3">
-                                        {window.innerWidth <1000 ? <p className='text-start mb-0 pb-1'>Time :</p> : ''}
+                                        {window.innerWidth < 1000 ? <p className='text-start mb-0 pb-1'>Time :</p> : ''}
                                         <input className="form-control" type="datetime-local" name="time"
                                             placeholder="Time" required={true} value={reminder.time} onChange={onChange} minLength={1} />
                                         <p className='mx-2 mb-0' id='timeWarning'>Invalid Time</p>

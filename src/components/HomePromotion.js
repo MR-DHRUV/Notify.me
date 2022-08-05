@@ -8,6 +8,7 @@ import './CSS/homePromotion.css'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
+import addNotification from 'react-push-notification'
 
 
 const HomePromotion = (props) => {
@@ -19,6 +20,12 @@ const HomePromotion = (props) => {
         if (localStorage.getItem('token')) {
             history.push('/dashboard');
         }
+        addNotification({
+            title: 'Hello !',
+            message: 'To get notification for your reminders please dont disble notifications for this website',
+            duration: 80000, //optional, default: 5000, 
+            native: true // when using native, your OS will handle theming.  
+        });
         // eslint-disable-next-line
     }, [])
 
@@ -35,6 +42,8 @@ const HomePromotion = (props) => {
             history.push('/signup')
         }
     }
+    
+
 
 
 
@@ -370,7 +379,7 @@ const HomePromotion = (props) => {
                     </div>
                 </div>
             </section> */}
-            <section className="py-5">
+            <section className="pt-5">
                 <div className="container py-5">
                     <div className="row mb-5">
                         <div className="col-md-8 col-xl-6 text-center mx-auto">
@@ -410,7 +419,7 @@ const HomePromotion = (props) => {
                     </div>
                 </div>
             </section>
-            <section className="py-5">
+            <section className="pb-5">
                 <div className="container">
                     <div className="row mb-4">
                         <div className="col-md-8 col-xl-6 text-center mx-auto">

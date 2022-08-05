@@ -23,3 +23,6 @@ padding: 2rem 0rem 1rem 0rem !important;
 .notecontainer{
     height: fit-content !important;
 }
+.remindNotebtn{
+  min-width:50px ;
+}

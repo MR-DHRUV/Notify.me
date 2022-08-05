@@ -6,7 +6,7 @@ import Alert from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom'
@@ -25,14 +25,15 @@ import ScrollHandler from './ScrollHandler';
 import AddReminder from './components/AddReminder';
 import Home from './components/Home';
 import Contact from './components/Contact';
-
+import { Notifications } from 'react-push-notification';
+import { useEffect } from 'react';
 
 
 function App() {
   const [alert, setAlert] = useState(null);
   const [email, setEmail] = useState('');
   const [noteData, setnoteData] = useState({})
-  const[viewNoteTheme, setViewNoteTheme] = useState(null)
+  const [viewNoteTheme, setViewNoteTheme] = useState(null)
   const showAlert = (message, type) => {
     setAlert({ msg: message, type: type })
 
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <>
+      <Notifications />
       <ReminderState>
         <NoteState>
           <Router>
@@ -51,14 +53,14 @@ function App() {
             <Navbar showAlert={showAlert} />
             <Alert alert={alert} />
             <Switch>
-              <Route exact path='/dashboard'><Home setnoteData={setnoteData} setViewNoteTheme={setViewNoteTheme}/></Route>
-              <Route exact path='/reminder'><Reminder theme ={viewNoteTheme}/></Route>
-              <Route exact path='/notes'><Notes setnoteData={setnoteData} setViewNoteTheme={setViewNoteTheme}/></Route>
+              <Route exact path='/dashboard'><Home setnoteData={setnoteData} setViewNoteTheme={setViewNoteTheme} /></Route>
+              <Route exact path='/reminder'><Reminder theme={viewNoteTheme} /></Route>
+              <Route exact path='/notes'><Notes setnoteData={setnoteData} setViewNoteTheme={setViewNoteTheme} /></Route>
               <Route exact path='/about'><About /></Route>
               <Route exact path='/addreminder'><AddReminder /></Route>
               <Route exact path='/newnote'><NewNote /></Route>
               <Route exact path='/contact'><Contact /></Route>
-              <Route exact path='/note' ><ViewNote data={noteData} theme ={viewNoteTheme}/></Route>
+              <Route exact path='/note' ><ViewNote data={noteData} theme={viewNoteTheme} /></Route>
               <Route exact path='/resetpassword'><ForgetPassword /></Route>
               <Route exact path='/myaccount' ><User showAlert={showAlert} /></Route>
               <Route exact path='/'><HomePromotion emailUpdater={setEmail} /></Route>
