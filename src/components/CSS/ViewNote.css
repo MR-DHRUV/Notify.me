@@ -13,6 +13,15 @@
     width: 70vw;
   }
 }
+
+@media (max-width: 999px) {
+  .newnotebutton{
+    margin-bottom: 7vh;
+  }
+  .reminderBtnPlus{
+    margin-right: -2rem;
+  }
+}
 .preview {
   word-wrap: break-word !important;
 }

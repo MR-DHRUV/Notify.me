@@ -19,7 +19,8 @@ const ReminderState = (props) => {
       },
     });
     const json = await response.json();
-    await setReminders(json);
+    const rev = await json.reverse();
+    await setReminders(rev);
     // console.log(reminders);
   }
 

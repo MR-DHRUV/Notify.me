@@ -33,11 +33,12 @@ const Notes = (props) => {
 
     return (
         <>
-            <div className='minheight'>
+            <div className={ window.innerWidth > 999 ?'minheight' : 'minheight mb-5 pb-5'}>
                 <div className="container mt-5">
                     <section class="">
-                        <div class="py-4">
+                        <div class={window.innerWidth > 999 ? "py-4" : ''}>
                             <div class="row mx-auto">
+                                <h2 className='fw-semibold mb-3'>Notes</h2>
                                 <div class="reflow-product-list ref-cards">
                                     <div class="ref-products">
                                         

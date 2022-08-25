@@ -29,7 +29,7 @@ const Home = (props) => {
         let newNotes = notes.slice(0, 3)
         setLatestNotes(newNotes)
       }
-      props.fetchData();
+      props.fetchData();  
       setNotes();
 
     }
@@ -41,7 +41,7 @@ const Home = (props) => {
 
   return (
     <>
-      <div className='minheight my-3 py-3'>
+      <div className={ window.innerWidth > 999 ?'minheight my-3 py-3' : 'minheight my-3 py-3 mb-5 pb-5'}>
 
         <Reminder hide={'hide'} />
         <div className="container link d-flex w-100 justify-content-start mb-5 pb-4">
@@ -49,10 +49,10 @@ const Home = (props) => {
         </div>
         <div className="container">
           {/* <h1 className='haedingTop border-bottom display-4 fw-bold'>Notes</h1> */}
-          <h1 className='h2 fw-semibold'>Notes</h1>
           <section class="">
-            <div class="py-5">
+            <div class="py-1">
               <div class="row mx-auto">
+                <h1 className='h2 fw-semibold'>Notes</h1>
                 <div class="reflow-product-list ref-cards">
                   <div class="ref-products">
 
