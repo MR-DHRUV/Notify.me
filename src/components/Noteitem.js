@@ -4,6 +4,7 @@ import React from 'react'
 import "./Noteitem.css";
 import ReactMarkdown from 'react-markdown';
 import { useHistory } from 'react-router-dom';
+import "./CSS/bootstrap.min.css"
 
 
 const Noteitem = (props) => {

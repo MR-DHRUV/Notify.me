@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import noteContext from '../context/notes/noteContext';
 import  './AddNote.css';
+import "./CSS/bootstrap.min.css"
 
 const AddNote = () => {
     const context = useContext(noteContext);

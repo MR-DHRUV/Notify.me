@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './CSS/footer.css'
+import "./CSS/bootstrap.min.css"
 
 
 const Footer = () => {

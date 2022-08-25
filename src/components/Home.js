@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import Reminder from './Reminder';
+import "./CSS/bootstrap.min.css"
 
 
 
@@ -28,7 +29,9 @@ const Home = (props) => {
         let newNotes = notes.slice(0, 3)
         setLatestNotes(newNotes)
       }
-      setNotes()
+      props.fetchData();
+      setNotes();
+
     }
     else {
       history.push('/signin');
@@ -45,7 +48,8 @@ const Home = (props) => {
           <Link className='btn btn-primary d-flex justify-content-start' to='/reminder'>View All Reminders</Link>
         </div>
         <div className="container">
-          <h1 className='haedingTop border-bottom display-4 fw-bold'>Notes</h1>
+          {/* <h1 className='haedingTop border-bottom display-4 fw-bold'>Notes</h1> */}
+          <h1 className='h2 fw-semibold'>Notes</h1>
           <section class="">
             <div class="py-5">
               <div class="row mx-auto">

@@ -9,6 +9,7 @@ import BackButton from './BackButton';
 import ReactMde from 'react-mde';
 import './CSS/ViewNote.css'
 import addNotification from 'react-push-notification';
+import "./CSS/bootstrap.min.css"
 
 
 const ViewNote = (props) => {
@@ -151,7 +152,7 @@ const ViewNote = (props) => {
     // console.log(props);
     return (
         <>
-            {editorMode === false ? <section className="py-4 minheight">
+            {editorMode === false ? <section className="py-4">
                 <BackButton />
                 <div className="container notecontainer">
                     <div className="row mx-auto">
@@ -214,13 +215,13 @@ const ViewNote = (props) => {
                 </div>
             </section> : <>
 
-                <section className="py-4 bg-primary-gradient">
+                <section className="py-5 mb-4">
                     <BackButton />
                     <div className="container notecontainer">
                         <div className="row mx-auto">
                             <div className="col">
-                                <h1 className="display-5 fw-bold mainheading mx-1">Edit Note</h1>
-                                <div data-reflow-type="shopping-cart" className='addNote mt-4'>
+                                {/* <h1 className="display-5 fw-bold mainheading mx-1">Edit Note</h1> */}
+                                <div data-reflow-type="shopping-cart" className='addNote bg-primary-gradient'>
                                     <form onSubmit={handleUpdate}>
                                         <div className="reflow-shopping-cart">
                                             <div className="ref-loading-overlay" />
@@ -228,7 +229,7 @@ const ViewNote = (props) => {
                                                 <div className="border-bottom py-0">
                                                     <div className="col">
                                                         <div className="d-flex flex-row">
-                                                            <input type="text" value={note.title} className="form-control my-input h1 mb-1 mt-0 notetitle" placeholder='Title' name='title' id="id" aria-describedby="emailHelp" onChange={onChange} minLength={3} required />
+                                                            <input type="text" value={note.title} className="form-control my-input h1 mb-1 mt-0 notetitle bg-primary-gradient opacity-50" placeholder='Title' name='title' id="id" aria-describedby="emailHelp" onChange={onChange} minLength={3} required />
                                                         </div>
                                                     </div>
 
@@ -258,18 +259,16 @@ const ViewNote = (props) => {
                                                             }}
                                                         />
                                                     </div>
-
+{/* 
                                                     <div className="my-3 mx-2">
-                                                        {/* <h4 className='my-3 fw-bold'>Preview : </h4> */}
                                                         <div className="preview"> <ReactMarkdown>{value}</ReactMarkdown></div>
-
-                                                    </div>
+                                                    </div> */}
 
 
                                                 </div>
                                                 <div className="d-flex flex-row border-bottom mt-4">
                                                     <h4 className='mx-3 fw-bold my-1 mt-2'>Tag : </h4>
-                                                    <input type="text" value={note.tag} placeholder='General' name='tag' className="form-control input-2" id="tag" onChange={onChange} />
+                                                    <input type="text opacity-50" value={note.tag} placeholder='General' name='tag' className="form-control input-2 bg-primary-gradient" id="tag" onChange={onChange} />
                                                 </div>
                                             </div>
                                         </div>
@@ -280,7 +279,6 @@ const ViewNote = (props) => {
                         </div>
                     </div>
                 </section>
-                <div className="margindiv bg-primary-gradient border-bottom"></div>
 
             </>}
         </>

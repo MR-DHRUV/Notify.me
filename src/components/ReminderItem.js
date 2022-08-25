@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom';
 import reminderContext from '../context/notes/reminderContext';
+import "./CSS/bootstrap.min.css"
 
 
 const ReminderItem = (props) => {
@@ -11,8 +12,9 @@ const ReminderItem = (props) => {
 
 
     const triggerDelete = async () => {
-        await deleteReminder(props.id)
-        history.push('/reminder')
+        await deleteReminder(props.id);
+        await props.reminderUpdater();
+        history.push('/reminder');
     }
 
     const updateHandler = async () => {

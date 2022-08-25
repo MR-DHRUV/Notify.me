@@ -1,4 +1,5 @@
 import React from 'react'
+import "./CSS/bootstrap.min.css"
 
 export default function Alert(props) {
     return (

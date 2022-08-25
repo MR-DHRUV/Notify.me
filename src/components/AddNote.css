@@ -45,10 +45,11 @@
 
 .mde-header {
   padding: 7px;
-  background-color: white !important;
+  /* background-color: white !important; */
 }
 .image-tip {
-  background-color: white !important;
+  /* background-color: white !important; */
+  
 }
 
 .input-2 {
@@ -82,7 +83,7 @@
   border: 2px solid #c8ccd0 !important;
   overflow: hidden;
   border-radius: 15px;
-  background-color: white !important;
+  /* background-color: white !important; */
 }
 
 @media (width<600px) {
@@ -190,3 +191,12 @@
     --ref-products-per-row: 3 !important;
   }
 } */
+
+.mde-text{
+  min-height: 300px;
+}
+
+.mde-preview-content{
+  background-color: white;
+  min-height: 300px;
+}

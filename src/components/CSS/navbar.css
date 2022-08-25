@@ -6,13 +6,13 @@
   justify-content: center;
   align-items: center;
   background-color: transparent !important;
-  color: #3763f4;
+  color: #3763f4 !important;
   margin-left: 100px;
 }
 
 .my-profile-btn:hover {
   background-color: #3763f4 !important;
-  color: white;
+  color: white !important ;
 }
 .my-profile-btn:active,
 .my-profile-btn:focus {

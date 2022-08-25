@@ -1,0 +1,4 @@
+.primaryRender{
+    overflow-y: scroll !important;
+    height: 84vh;
+}

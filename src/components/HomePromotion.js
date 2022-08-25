@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useEffect } from 'react'
 import addNotification from 'react-push-notification'
+import "./CSS/bootstrap.min.css"
 
 
 const HomePromotion = (props) => {

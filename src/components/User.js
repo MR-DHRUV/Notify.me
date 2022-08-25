@@ -4,7 +4,7 @@ import { useState } from 'react';
 // import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './CSS/signup.css';
-
+import "./CSS/bootstrap.min.css"
 
 
 
@@ -38,7 +38,7 @@ const User = (props) => {
 
             const fetchData = async () => {
 
-                const response = await fetch('https://api-authify.azurewebsites.net//auth/verifyuser', {
+                const response = await fetch('http://localhost:5000/auth/verifyuser', {
 
                     method: 'POST',
                     headers: {
@@ -63,7 +63,7 @@ const User = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault(); // this will prevent reload
 
-        const response = await fetch('https://api-authify.azurewebsites.net//fogotpassword', {
+        const response = await fetch('http://localhost:5000/fogotpassword', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ const User = (props) => {
     const handleReset = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('https://api-authify.azurewebsites.net//fogotpassword/verify', {
+        const response = await fetch('http://localhost:5000/fogotpassword/verify', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ const User = (props) => {
 
     const reqDelete = async (e) => {
         e.preventDefault()
-        const response = await fetch('https://api-authify.azurewebsites.net//auth/delete/email', {
+        const response = await fetch('http://localhost:5000/auth/delete/email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -135,7 +135,7 @@ const User = (props) => {
 
         if (warning === true) {
 
-            const response = await fetch('https://api-authify.azurewebsites.net//auth/delete/email/verify', {
+            const response = await fetch('http://localhost:5000/auth/delete/email/verify', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -165,8 +165,8 @@ const User = (props) => {
 return (
 
     <>
-        <div className='container my-5 mt-5 mycontainer'>
-            <div className="card shadow-lg o-hidden border-0 myauth mT-5">
+        <div className='container my-5'>
+            <div className="card shadow-lg o-hidden border-0 myauth">
                 <div className="card-body p-0">
                     <div className="row">
                         <div className="col-lg-5 d-none d-lg-flex">
@@ -193,18 +193,18 @@ return (
                                     <div className="user d-flex flex-column justify-content-center">
                                         <div ><h4 className='h4 text-center'>{user.email}</h4></div>
 
-                                        <div className="w-100 d-flex justify-content-center mt-4"> <button className="btn btn-primary d-block btn-user w-100 my-2" type="submit" onClick={signOut}>Sign Out</button></div>
+                                        <div className="w-100 d-flex justify-content-center mt-4"> <button className="btn btn-primary d-block btn-user w-100 my-2 mw-500" type="submit" onClick={signOut}>Sign Out</button></div>
                                         {/* <div className="w-100 d-flex justify-content-center"> <button className="btn btn-primary d-block btn-user w-100 my-2" type="submit">Update Email</button></div> */}
 
                                         <form onSubmit={handleSubmit}>
                                             <div className="w-100 d-flex justify-content-center mb-5">
-                                                <button className="btn btn-primary d-block btn-user w-100 my-2" type="submit">Update Password</button>
+                                                <button className="btn btn-primary d-block btn-user w-100 my-2 mw-500" type="submit">Update Password</button>
                                             </div>
                                         </form>
 
                                         <hr />
                                         <form onSubmit={reqDelete}>
-                                            <div className="w-100 d-flex justify-content-center"> <button className="btn btn-danger d-block btn-user w-100 google" type="submit">Delete Account</button></div></form>
+                                            <div className="w-100 d-flex justify-content-center"> <button className="btn btn-danger d-block btn-user w-100 google mw-500" type="submit">Delete Account</button></div></form>
                                         <hr />
                                     </div>
                                 </div>

@@ -122,3 +122,13 @@ i {
     --ref-products-per-row: 4 !important;
   }
 }
+
+
+.notesMain{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  margin-right: 3rem;
+  margin-left: 3rem;
+  
+}

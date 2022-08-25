@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import "./CSS/bootstrap.min.css"
+import "./CSS/bootstrap.min.css"
 
 
 
@@ -36,7 +38,7 @@ const Contact = () => {
         }
 
         // console.log(query);
-        const response = await fetch('https://api-authify.azurewebsites.net//notes/mailer', {
+        const response = await fetch('http://localhost:5000/notes/mailer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

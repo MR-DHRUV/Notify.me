@@ -7,6 +7,7 @@ import reminderContext from '../context/notes/reminderContext';
 import ReminderItem from './ReminderItem';
 import './CSS/reminder.css'
 import addNotification from 'react-push-notification';
+import "./CSS/bootstrap.min.css"
 
 const Reminder = (props) => {
 
@@ -66,6 +67,7 @@ const Reminder = (props) => {
             getAllReminders()
             chkPrev()
             chkUpk()
+            console.log("redimders fetched");
         }
         else {
             history.push('/signin');
@@ -158,7 +160,7 @@ const Reminder = (props) => {
 
 
     return (
-        <section className={props.hide ? 'mb-4' : 'mt-4 pt-1 minheight'} id='addBlur'>
+        <section className={props.hide ? 'mb-4' : 'minheight'} id='addBlur'>
             {add && <div id='addReminder' className="row g-0 row-cols-1 row-cols-md-2 row-cols-xl-3 d-flex align-items-md-center align-items-xl-center justify-content-center align-content-center ">
                 <div className="col myBox">
                     <div className={`card textwhite bg-${colors[themeStorage]}-light text-${colors[themeStorage]}`}>
@@ -181,7 +183,7 @@ const Reminder = (props) => {
                                         placeholder="Title" required={true} value={reminder.title} onChange={onChange} minLength={3} /></div>
 
                                     <div className="mb-3">
-                                        <textarea className={`form-control text-${colors[themeStorage]}`} name="description" placeholder="Description" required={true} value={reminder.description} onChange={onChange} minLength={3} id="floatingTextarea"></textarea>
+                                        <textarea className={`form-control text-${colors[themeStorage]}`} name="description" placeholder="Description" required={true} value={reminder.description} onChange={onChange} minLength={5} rows='5' id="floatingTextarea"></textarea>
                                     </div>
 
                                     <div className="mb-3">
@@ -200,7 +202,7 @@ const Reminder = (props) => {
                 </div>
             </div>}
             <div className="container mt-0 pt-0" id='getBlur'>
-                <h1 className='haedingTop border-bottom display-4 fw-bold'>Reminders</h1>
+                {/* <h1 className='haedingTop border-bottom display-4 fw-bold'>Reminders</h1> */}
                 <div className="row mx-auto mt-0 pt-0 border-bottom">
                     <div className="col mt-0 pt-0 myCol">
                         <div data-reflow-type="shopping-cart mt-0 pt-0">
