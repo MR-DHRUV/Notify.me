@@ -11,7 +11,7 @@ const ReminderState = (props) => {
 
   //To get all notes
   const getAllReminders = async () => {
-    const response = await fetch('https://api-authify.herokuapp.com/reminder/fetch_all_reminders', {
+    const response = await fetch('https://api-authify.azurewebsites.net//reminder/fetch_all_reminders', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const ReminderState = (props) => {
   const addReminder = async (title, description,time) => {
     
     //eslint-disable-next-line
-    const response = await fetch('https://api-authify.herokuapp.com/reminder/add_reminder', {
+    const response = await fetch('https://api-authify.azurewebsites.net//reminder/add_reminder', {
 
       method: 'POST',
       headers: {
@@ -53,7 +53,7 @@ const ReminderState = (props) => {
     // console.log(localStorage.getItem('token'));
     
     //eslint-disable-next-line
-    const response = await fetch(`https://api-authify.herokuapp.com/reminder/delete_reminder/${id}`, {
+    const response = await fetch(`https://api-authify.azurewebsites.net//reminder/delete_reminder/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const ReminderState = (props) => {
   const editReminder = async (id, title, description, time) => {
     //API Call
     //eslint-disable-next-line
-    const response = await fetch(`https://api-authify.herokuapp.com/reminder/update_existing_reminder/${id}`, {
+    const response = await fetch(`https://api-authify.azurewebsites.net//reminder/update_existing_reminder/${id}`, {
 
       method: 'PUT',
       headers: {

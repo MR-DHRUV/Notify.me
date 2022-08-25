@@ -36,7 +36,7 @@ const Contact = () => {
         }
 
         // console.log(query);
-        const response = await fetch('https://api-authify.herokuapp.com/notes/mailer', {
+        const response = await fetch('https://api-authify.azurewebsites.net//notes/mailer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
