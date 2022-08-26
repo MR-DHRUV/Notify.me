@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 765px) {
-  .my-profile-btn {
+  .my-profile-btn { 
     margin-left: 0px;
   }
 }

@@ -29,7 +29,7 @@ const Home = (props) => {
         let newNotes = notes.slice(0, 3)
         setLatestNotes(newNotes)
       }
-      props.fetchData();  
+      // props.fetchData();  
       setNotes();
 
     }

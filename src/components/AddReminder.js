@@ -25,9 +25,6 @@ const AddReminder = () => {
 
       </form>
 
-
-
-
     </div >
   )
 }

@@ -97,7 +97,6 @@
     -ms-transform: scale(0);
     -o-transform: scale(0);
     transform: scale(0);
-    content: '\e64c';
     font-size: .9375rem;
     font-weight: bold;
     color: #1F3BB3;
@@ -399,3 +398,7 @@
 .list-wrapper .completed .remove {
     text-decoration: none;
 }
+
+
+/* ***************** */
+
