@@ -23,7 +23,7 @@ const ForgetPassword = () => {
         event.preventDefault(); // this will prevent reload
         // console.log(JSON.stringify({ email: credentials.email }));
 
-        const response = await fetch('http://localhost:5000/fogotpassword', {
+        const response = await fetch('https://api-authify.azurewebsites.net/fogotpassword', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const ForgetPassword = () => {
     const handleReset = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('http://localhost:5000/fogotpassword/verify', {
+        const response = await fetch('https://api-authify.azurewebsites.net/fogotpassword/verify', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

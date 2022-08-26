@@ -38,7 +38,7 @@ const Contact = () => {
         }
 
         // console.log(query);
-        const response = await fetch('http://localhost:5000/notes/mailer', {
+        const response = await fetch('https://api-authify.azurewebsites.net/notes/mailer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
