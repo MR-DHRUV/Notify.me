@@ -73,7 +73,7 @@ const Reminder = (props) => {
             history.push('/signin');
         }
         // eslint-disable-next-line
-    }, [])
+    }, [reminders])
 
 
     const handleAdd = async () => {

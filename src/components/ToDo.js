@@ -17,7 +17,7 @@ const ToDo = () => {
 
     useEffect(() => {
         getAllList();
-        console.log("gettinglist");
+        console.log("gettinglist"); 
     }, [])
 
     const onChange = (event) => {
@@ -65,7 +65,7 @@ const ToDo = () => {
                                                 </div>
                                             </form>
                                         </div>
-                                        <ul class="todo-list todo-list-rounded">
+                                        <ul class="todo-list todo-list-rounded overfloy-y-scroll">
                                             {lists.map((list) => {
                                                 return <ListItem key={list._id} id={list._id} title={list.title} date={list.date} done={list.isDone}/>
                                             })}

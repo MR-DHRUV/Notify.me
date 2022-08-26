@@ -21,7 +21,7 @@ const Home = (props) => {
   const context = useContext(noteContext);
   const context1 = useContext(todoContext);
 
-  const { lists, getAllList } = context1;
+  const { lists, getAllList  } = context1;
 
 
   const { notes, getAllNotes } = context;

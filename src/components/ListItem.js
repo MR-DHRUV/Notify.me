@@ -1,15 +1,22 @@
 import React, { useContext } from 'react'
+import { useState } from 'react';
 import todoContext from '../context/notes/todoContext';
 
 
 const ListItem = (props) => {
 
     const context = useContext(todoContext);
-    const { deleteList } = context;
+    const { deleteList , editList } = context;
 
-    const delList = async (e)=>{
+    const delList = async (e) => {
         console.log(props.id)
         await deleteList(props.id);
+    }
+
+    // const [complete, setcomplete] = useState(false);
+
+    const updater = () => {
+        editList(props.id);
     }
 
 
@@ -20,11 +27,14 @@ const ListItem = (props) => {
     const constructor = new Date(props.date);
     const dateToDisplay = constructor.getDate() + ' ' + monthNames[constructor.getMonth()] + ', ' + constructor.getFullYear();
 
+    const Diffrence = (constructor - Date.now()) / (1000 * 3600 * 24); 
+    console.log("Diffreence : ", Diffrence);
+
     return (
-        <li class="d-block">
+        <li class={props.done === true ? "d-block completed" : "d-block"}>
             <div class="form-check w-100 mb-3">
                 <label class="form-check-label">
-                    <input class="checkbox form-check-input" type="checkbox" />
+                    <input class="checkbox form-check-input" type="checkbox" onClick={updater}/>
                     <i class="input-helper fa-check rounded"></i>
                     <h5 className="fw-bold">{props.title}</h5>
                 </label>
@@ -35,7 +45,7 @@ const ListItem = (props) => {
                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                         </svg>
                         {dateToDisplay}
-                        <div class="badge rounded mx-1 d-flex align-items-center badge-opacity-warning ms-3 rounded mx-1 d-flex align-items-center">Due tomorrow</div>
+                        { Diffrence > 1 && Diffrence < 2 ? <div class="badge rounded mx-1 d-flex align-items-center badge-opacity-warning ms-3 rounded mx-1 d-flex align-items-center">Due tomorrow</div> : Diffrence > 0 && Diffrence < 1  ? <div class="badge rounded mx-1 d-flex align-items-center badge-opacity-danger bg-danger bg-opacity-25 ms-3 rounded mx-1 d-flex align-items-center">Due today</div> : ''}
                     </div>
                     <div className="d-flex flex war flex-row me-4 responsivetodobtn">
                         <button className='btn p-0 m-0 listbtnoption' onClick={delList}>

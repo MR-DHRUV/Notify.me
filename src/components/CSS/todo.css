@@ -2,6 +2,11 @@
     color: #3763f4;
 }
 
+.overfloy-y-scroll{
+    overflow-y: scroll !important;
+    max-height: 44vh;
+}
+
 @media (max-width : 999px){
     .responsiveToDo{
         padding: 0px !important;
@@ -11,5 +16,9 @@
     }
     .responsivetodobottomcontainer{
         padding-left: 8px !important;
+    }
+    .overfloy-y-scroll{
+        overflow-y: scroll !important;
+        max-height: 60vh;
     }
 }
