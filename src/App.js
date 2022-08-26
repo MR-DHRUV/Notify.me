@@ -52,7 +52,7 @@ function App() {
 
   const fetchData = async () => {
 
-    const response = await fetch('http://localhost:5000/auth/verifyuser', {
+    const response = await fetch('https://api-authify.azurewebsites.net/auth/verifyuser', {
 
       method: 'POST',
       headers: {
@@ -197,7 +197,7 @@ function App() {
                 <Route exact path='/signin'><Login showAlert={showAlert} /></Route>
                 <Route exact path='/signup'><Signup showAlert={showAlert} email={email} /></Route>
                 <Route path='/auth/v2/google' component={() => {
-                  window.location.href = 'http://localhost:5000/auth/google';
+                  window.location.href = 'https://api-authify.azurewebsites.net/auth/google';
                   return null;
                 }} />
               </Switch>
