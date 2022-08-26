@@ -201,7 +201,7 @@ const Reminder = (props) => {
                     </div>
                 </div>
             </div>}
-            <div className="container mt-0 pt-0" id='getBlur'>
+            <div className="container mt-4 pt-0" id='getBlur'>
                 {/* <h1 className='haedingTop border-bottom display-4 fw-bold'>Reminders</h1> */}
                 <div className="row mx-auto mt-0 pt-0 border-bottom">
                     <div className="col mt-0 pt-0 myCol">
