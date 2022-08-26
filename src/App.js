@@ -74,6 +74,21 @@ function App() {
     // eslint-disable-next-line
   }, [])
 
+  let today = new Date();
+  let todayHours = today.getHours();
+  let greet;
+
+  if (4 <= todayHours && todayHours <= 11) {
+    greet = 'Good Morning';
+  }
+
+  else if (11 < todayHours && todayHours <= 16) {
+    greet = 'Good Afternoon';
+  }
+  else {
+    greet = 'Good Evening';
+  }
+
 
 
   return (
@@ -111,7 +126,7 @@ function App() {
                       <div class="navbar-menu-wrapper d-flex align-items-top">
                         <ul class="navbar-nav">
                           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                            <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{name}</span></h1>
+                            <h1 class="welcome-text">{greet}, <span class="text-black fw-bold">{name}</span></h1>
                           </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
