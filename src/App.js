@@ -52,7 +52,7 @@ function App() {
 
   const fetchData = async () => {
 
-    const response = await fetch('https://api-authify.azurewebsites.net/auth/verifyuser', {
+    const response = await fetch('https://api-data-notify.herokuapp.com/auth/verifyuser', {
 
       method: 'POST',
       headers: {
@@ -197,7 +197,7 @@ function App() {
                 <Route exact path='/signin'><Login showAlert={showAlert} /></Route>
                 <Route exact path='/signup'><Signup showAlert={showAlert} email={email} /></Route>
                 <Route path='/auth/v2/google' component={() => {
-                  window.location.href = 'https://api-authify.azurewebsites.net/auth/google';
+                  window.location.href = 'https://api-data-notify.herokuapp.com/auth/google';
                   return null;
                 }} />
               </Switch>
