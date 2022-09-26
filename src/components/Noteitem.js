@@ -32,23 +32,6 @@ const Noteitem = (props) => {
 
     return (
         <>
-            {/* <div className='col-md-3 my-2'>
-                <div className="card">
-                    <div className="card-body">
-                        <div className="d-flex justify-content-between">
-                            <h5 className="card-title" id='heading'>{props.note.title}</h5>
-                            <div id="imageDiv">
-                                <i className="fa-solid fa-trash-can mx-2 " onClick={() => { deleteNote(props.note._id) }}></i>
-                                <i className="fa-solid fa-pen-to-square mx-2" onClick={() => {
-                                    props.updateNote(props.note)
-                                }}></i>
-                            </div>
-                        </div>
-                        <p className="card-text"> <ReactMarkdown>{props.note.description}</ReactMarkdown></p>
-                        <p className='tag'>{props.note.tag}</p>
-                    </div>
-                </div>
-            </div> */}
 
             <div class={`ref-product minNoteItemHeight bg-${colors[props.theme]}-light p-4 cursor-pointer`} onClick={viewNote} >
                 <div class="d-flex flex-column border-bottom mb-3">

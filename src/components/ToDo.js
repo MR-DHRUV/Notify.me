@@ -10,14 +10,19 @@ import './CSS/todo.css'
 const ToDo = () => {
 
     const context = useContext(todoContext);
-    const { lists, getAllList , addList } = context;
+    const { lists, getAllList, addList } = context;
 
     const [newList, setnewList] = useState({ title: '', date: '' })
 
 
     useEffect(() => {
-        getAllList();
-        console.log("gettinglist"); 
+
+        if (lists.length === 0) {
+            
+            getAllList();
+            console.log("gettinglist");
+        }
+
     }, [])
 
     const onChange = (event) => {
@@ -26,7 +31,7 @@ const ToDo = () => {
 
     const handleAdd = async (e) => {
         e.preventDefault();
-        await addList(newList.title , newList.date);
+        await addList(newList.title, newList.date);
         await getAllList();
         setnewList({ title: '', date: '' })
     }
@@ -45,7 +50,7 @@ const ToDo = () => {
                                     </div>
                                     <div class="list-wrapper">
                                         <div className="addList border-bottom mb-5 pb-2">
-                                            <form className='d-flex flex-column flex-wrap justify-content-between' onSubmit={handleAdd }>
+                                            <form className='d-flex flex-column flex-wrap justify-content-between' onSubmit={handleAdd}>
                                                 <div className="mb-3"><input className="form-control" type="text" name="title"
                                                     placeholder="Title" required={true} value={newList.title} onChange={onChange} minLength={3} /></div>
 
@@ -67,7 +72,7 @@ const ToDo = () => {
                                         </div>
                                         <ul class="todo-list todo-list-rounded overfloy-y-scroll">
                                             {lists.map((list) => {
-                                                return <ListItem key={list._id} id={list._id} title={list.title} date={list.date} done={list.isDone}/>
+                                                return <ListItem key={list._id} id={list._id} title={list.title} date={list.date} done={list.isDone} />
                                             })}
                                         </ul>
                                     </div>

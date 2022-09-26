@@ -44,7 +44,7 @@ const ViewNote = (props) => {
 
     const triggerDelete = async () => {
         await deleteNote(props.data._id)
-        history.push('/dashboard')
+        history.push('/notes')
     }
 
 
