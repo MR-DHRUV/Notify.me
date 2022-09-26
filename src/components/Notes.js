@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
 // import AddNote from './AddNote';
@@ -14,14 +14,19 @@ import './Noteitem.css'
 const Notes = (props) => {
     const history = useHistory();
     const context = useContext(noteContext);
-    const { notes, getAllNotes} = context;
+    const { notes, getAllNotes } = context;
     let theme = 0;
 
     // const [note, setNote] = useState({ id: '', editedtitle: "", editeddescription: "", editedtag: "general" })
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            getAllNotes()
+            
+            if (notes.length === 0) {
+
+                getAllNotes()
+            }
+
         }
         else {
             history.push('/signin');
@@ -33,7 +38,7 @@ const Notes = (props) => {
 
     return (
         <>
-            <div className={ window.innerWidth > 999 ?'minheight' : 'minheight mb-5 pb-5'}>
+            <div className={window.innerWidth > 999 ? 'minheight' : 'minheight mb-5 pb-5'}>
                 <div className="container mt-5">
                     <section class="">
                         <div class={window.innerWidth > 999 ? "py-4" : ''}>
@@ -41,14 +46,14 @@ const Notes = (props) => {
                                 <h2 className='fw-semibold mb-3'>Notes</h2>
                                 <div class="reflow-product-list ref-cards">
                                     <div class="ref-products">
-                                        
+
                                         {notes.map((note) => {
                                             let send = theme
-                                            theme =theme+1;
-                                            if(theme === 4){
+                                            theme = theme + 1;
+                                            if (theme === 4) {
                                                 theme = 0;
                                             }
-                                            return <Noteitem note={note} key={note._id} setnoteData={props.setnoteData} theme={send} setViewNoteTheme={props.setViewNoteTheme}/>
+                                            return <Noteitem note={note} key={note._id} setnoteData={props.setnoteData} theme={send} setViewNoteTheme={props.setViewNoteTheme} />
                                         })}
 
                                     </div>

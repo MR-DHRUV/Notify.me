@@ -39,7 +39,7 @@ const NewNote = () => {
             addNote(note.title, value, note.tag);
         }
         setNote({ title: "", description: "", tag: "" });
-        history.push('/dashboard')
+        history.push('/notes')
     }
 
     const onChange = (event) => {

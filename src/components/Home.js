@@ -21,7 +21,7 @@ const Home = (props) => {
   const context = useContext(noteContext);
   const context1 = useContext(todoContext);
 
-  const { lists, getAllList  } = context1;
+  const { lists, getAllList } = context1;
 
 
   const { notes, getAllNotes } = context;
@@ -31,8 +31,12 @@ const Home = (props) => {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      getAllNotes()
-      getAllList();
+
+      if (notes.length === 0 || lists.length === 0) {
+        
+        getAllNotes()
+        getAllList();
+      }
 
       const setNotes = async () => {
         let newNotes = notes.slice(0, 3)
