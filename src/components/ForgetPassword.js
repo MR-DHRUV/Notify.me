@@ -29,6 +29,9 @@ const ForgetPassword = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email: credentials.email })
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         })
 
         const data = await response.json();
@@ -51,6 +54,9 @@ const ForgetPassword = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email: credentials.email, authcode: Number(credentials.verifyToken), password: credentials.password })
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         })
 
         // eslint-disable-next-line

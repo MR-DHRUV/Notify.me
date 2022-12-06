@@ -25,6 +25,9 @@ const Login = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
+            ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
         })
         const json = await response.json()
         // console.log(json);
@@ -51,6 +54,9 @@ const Login = (props) => {
         // console.log(uri);
         const preConnect = await fetch(`https://data-notify.azurewebsites.net/auth/googlecontext/:${uri}`, {
             method: 'PUT'
+            ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
         })
 
         const preConnectResponse = await preConnect.json();
@@ -75,6 +81,9 @@ const Login = (props) => {
                 while (data === undefined || data === null) {
                     const response = await fetch(`https://data-notify.azurewebsites.net/auth/g/user/${uri}`, {
                         method: 'GET'
+                        ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
                     })
                     const md = await response.json()
 

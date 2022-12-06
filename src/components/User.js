@@ -45,6 +45,9 @@ const User = (props) => {
                         'Content-Type': 'application/json',
                         'auth-token': localStorage.getItem('token')
                     }
+                    ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
                 });
 
                 const data = await response.json();
@@ -69,6 +72,9 @@ const User = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email: user.email })
+            ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
         })
 
         const data = await response.json();
@@ -91,6 +97,9 @@ const User = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email: user.email, authcode: Number(credentials.verifyToken), password: credentials.password })
+            ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
         })
 
         const data = await response.json();
@@ -119,6 +128,9 @@ const User = (props) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email: user.email })
+            ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
         })
 
         const data = await response.json();
@@ -141,6 +153,9 @@ const User = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ email: user.email, authcode: Number(credentials.verifyToken), password: credentials.password })
+                ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
             })
 
             const data = await response.json();

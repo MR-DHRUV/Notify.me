@@ -31,7 +31,7 @@ const Contact = () => {
         //     document.getElementById('hideMsg').style.display = 'none';
         //     return
         // }
-        if (query.contactNo.length !== 10 ) {
+        if (query.contactNo.length !== 10) {
             document.getElementById('hideMsg1').style.display = 'flex';
             document.getElementById('hideMsg').style.display = 'none';
             return
@@ -45,6 +45,9 @@ const Contact = () => {
                 'auth-token': localStorage.getItem('token')
             },
             body: JSON.stringify({ subject: query.subject, message: query.message, contactNo: Number(query.contactNo) })
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         })
         const json = await response.json()
         // console.log(json);

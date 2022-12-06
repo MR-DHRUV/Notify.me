@@ -16,7 +16,10 @@ const ToDoSate = (props) => {
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem('token')
-            },
+            }
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         });
         const json = await response.json();
         await setList(json);
@@ -34,7 +37,10 @@ const ToDoSate = (props) => {
                 'auth-token': localStorage.getItem('token')
 
             },
-            body: JSON.stringify({title, date})
+            body: JSON.stringify({ title, date })
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
 
         });
         //user will be identified from token that is send in header
@@ -56,7 +62,10 @@ const ToDoSate = (props) => {
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem('token')
-            },
+            }
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         });
         const newlists = lists.filter((reminder) => {
             return reminder._id !== id;
@@ -77,6 +86,8 @@ const ToDoSate = (props) => {
                 'auth-token': localStorage.getItem('token')
 
             },
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         });
 
         // let newReminder = await JSON.parse(JSON.stringify(reminders));

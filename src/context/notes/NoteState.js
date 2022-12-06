@@ -36,6 +36,9 @@ const NoteState = (props) => {
 
       },
       body: JSON.stringify({ title, description, tag })
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
 
     });
     //user will be identified from token that is send in header
@@ -60,6 +63,8 @@ const NoteState = (props) => {
         'Content-Type': 'application/json',
         'auth-token': localStorage.getItem('token')
       },
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
     });
     const newNotes = notes.filter((note) => {
       return note._id !== id;
@@ -82,6 +87,9 @@ const NoteState = (props) => {
 
       },
       body: JSON.stringify({ title, description, tag })
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
 
     });
 
@@ -109,6 +117,9 @@ const NoteState = (props) => {
         'auth-token': localStorage.getItem('token')
       },
       body : JSON.stringify({time})
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
     });
     
     // eslint-disable-next-line

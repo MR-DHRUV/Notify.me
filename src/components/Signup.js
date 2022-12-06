@@ -12,7 +12,7 @@ const Signup = (props) => {
 
     const [credentials, setCredentials] = useState({ fname: '', email: props.email, password: '', cpassword: '', lname: "", verificationCode: null });
     let history = useHistory();
-    const [sendOtp, setSendOtp] = useState(false) 
+    const [sendOtp, setSendOtp] = useState(false)
 
     const onChange = (event) => {
         setCredentials({ ...credentials, [event.target.name]: event.target.value })
@@ -40,7 +40,10 @@ const Signup = (props) => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name: name, email: credentials.email, password: credentials.password , authcode : Number(credentials.verificationCode) })
+                body: JSON.stringify({ name: name, email: credentials.email, password: credentials.password, authcode: Number(credentials.verificationCode) })
+                ,
+                mode: 'cors',
+                referrerPolicy: "origin-when-cross-origin",
             });
             const json = await response.json();
             // console.log(json);
@@ -62,7 +65,9 @@ const Signup = (props) => {
         const uri = md5(authCode);
         // console.log(uri);
         const preConnect = await fetch(`https://data-notify.azurewebsites.net/auth/googlecontext/:${uri}`, {
-            method: 'PUT'
+            method: 'PUT',
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         })
 
         const preConnectResponse = await preConnect.json();
@@ -86,7 +91,9 @@ const Signup = (props) => {
 
                 while (data === undefined || data === null) {
                     const response = await fetch(`https://data-notify.azurewebsites.net/auth/g/user/${uri}`, {
-                        method: 'GET'
+                        method: 'GET',
+                        mode: 'cors',
+                        referrerPolicy: "origin-when-cross-origin",
                     })
                     const md = await response.json()
 
@@ -112,7 +119,10 @@ const Signup = (props) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: credentials.email})
+            body: JSON.stringify({ email: credentials.email })
+            ,
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         });
         const json = await response.json();
         // console.log(json);
@@ -162,7 +172,7 @@ const Signup = (props) => {
                         <div className="col-lg-7">
                             <div className="p-5">
                                 <div className="text-center">
-                                    <h4 className="text-dark mb-4 text-capitalize">{sendOtp === false ?'Create an Account!' : 'Mail with verification code send to your email-ID'}</h4>
+                                    <h4 className="text-dark mb-4 text-capitalize">{sendOtp === false ? 'Create an Account!' : 'Mail with verification code send to your email-ID'}</h4>
                                 </div>
 
                                 {sendOtp === false ?

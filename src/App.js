@@ -58,7 +58,9 @@ function App() {
       headers: {
         'Content-Type': 'application/json',
         'auth-token': localStorage.getItem('token')
-      }
+      },
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
     });
 
     const data = await response.json();

@@ -16,7 +16,10 @@ const ReminderState = (props) => {
       headers: {
         'Content-Type': 'application/json',
         'auth-token': localStorage.getItem('token')
-      },
+      }
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
     });
     const json = await response.json();
     const rev = await json.reverse();
@@ -24,8 +27,8 @@ const ReminderState = (props) => {
     // console.log(reminders);
   }
 
-  const addReminder = async (title, description,time) => {
-    
+  const addReminder = async (title, description, time) => {
+
     //eslint-disable-next-line
     const response = await fetch('https://data-notify.azurewebsites.net/reminder/add_reminder', {
 
@@ -36,6 +39,9 @@ const ReminderState = (props) => {
 
       },
       body: JSON.stringify({ title, description, time })
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
 
     });
     //user will be identified from token that is send in header
@@ -52,17 +58,20 @@ const ReminderState = (props) => {
   //delete
   const deleteReminder = async (id) => {
     // console.log(localStorage.getItem('token'));
-    
+
     //eslint-disable-next-line
     const response = await fetch(`https://data-notify.azurewebsites.net/reminder/delete_reminder/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'auth-token': localStorage.getItem('token')
-      },
+      }
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
     });
     const newReminders = reminders.filter((reminder) => {
-     return reminder._id !== id;
+      return reminder._id !== id;
     })
     setReminders(newReminders)
 
@@ -82,6 +91,9 @@ const ReminderState = (props) => {
 
       },
       body: JSON.stringify({ title, description, time })
+      ,
+      mode: 'cors',
+      referrerPolicy: "origin-when-cross-origin",
 
     });
 
@@ -101,11 +113,11 @@ const ReminderState = (props) => {
 
 
   return (
-   <>
+    <>
       <reminderContext.Provider value={{ reminders, setReminders, addReminder, deleteReminder, editReminder, getAllReminders }}>
         {props.children}
       </reminderContext.Provider>
-   </>
+    </>
   )
 
 }
