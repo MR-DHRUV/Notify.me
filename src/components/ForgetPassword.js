@@ -26,7 +26,8 @@ const ForgetPassword = () => {
         const response = await fetch('https://data-notify.azurewebsites.net/fogotpassword', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: credentials.email })
             ,
@@ -51,7 +52,8 @@ const ForgetPassword = () => {
         const response = await fetch('https://data-notify.azurewebsites.net/fogotpassword/verify', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: credentials.email, authcode: Number(credentials.verifyToken), password: credentials.password })
             ,

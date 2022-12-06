@@ -7,7 +7,7 @@ import "./CSS/bootstrap.min.css"
 
 
 const Login = (props) => {
-    
+
     const [credentials, setCredentials] = useState({ email: '', password: '' });
     let history = useHistory();
 
@@ -22,12 +22,13 @@ const Login = (props) => {
         const response = await fetch('https://data-notify.azurewebsites.net/auth/signin', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
             ,
-      mode: 'cors',
-      referrerPolicy: "origin-when-cross-origin",
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
         })
         const json = await response.json()
         // console.log(json);
@@ -55,8 +56,12 @@ const Login = (props) => {
         const preConnect = await fetch(`https://data-notify.azurewebsites.net/auth/googlecontext/:${uri}`, {
             method: 'PUT'
             ,
-      mode: 'cors',
-      referrerPolicy: "origin-when-cross-origin",
+            mode: 'cors',
+            referrerPolicy: "origin-when-cross-origin",
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
         })
 
         const preConnectResponse = await preConnect.json();
@@ -82,8 +87,12 @@ const Login = (props) => {
                     const response = await fetch(`https://data-notify.azurewebsites.net/auth/g/user/${uri}`, {
                         method: 'GET'
                         ,
-      mode: 'cors',
-      referrerPolicy: "origin-when-cross-origin",
+                        mode: 'cors',
+                        referrerPolicy: "origin-when-cross-origin",
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                          },
                     })
                     const md = await response.json()
 

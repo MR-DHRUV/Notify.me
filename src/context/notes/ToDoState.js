@@ -15,7 +15,8 @@ const ToDoSate = (props) => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
+                'auth-token': localStorage.getItem('token'),
+                'Access-Control-Allow-Origin': '*'
             }
             ,
             mode: 'cors',
@@ -34,7 +35,8 @@ const ToDoSate = (props) => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
+                'auth-token': localStorage.getItem('token'),
+                'Access-Control-Allow-Origin': '*'
 
             },
             body: JSON.stringify({ title, date })
@@ -62,6 +64,8 @@ const ToDoSate = (props) => {
             headers: {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem('token')
+                ,
+                'Access-Control-Allow-Origin': '*'
             }
             ,
             mode: 'cors',
@@ -83,7 +87,8 @@ const ToDoSate = (props) => {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
+                'auth-token': localStorage.getItem('token'),
+                'Access-Control-Allow-Origin': '*'
 
             },
             mode: 'cors',

@@ -15,7 +15,8 @@ const ReminderState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       }
       ,
       mode: 'cors',
@@ -35,7 +36,8 @@ const ReminderState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
 
       },
       body: JSON.stringify({ title, description, time })
@@ -64,7 +66,8 @@ const ReminderState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       }
       ,
       mode: 'cors',
@@ -87,7 +90,8 @@ const ReminderState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
 
       },
       body: JSON.stringify({ title, description, time })

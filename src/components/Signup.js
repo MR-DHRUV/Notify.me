@@ -38,7 +38,8 @@ const Signup = (props) => {
             const response = await fetch('https://data-notify.azurewebsites.net/auth/signup/email/verify', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
                 },
                 body: JSON.stringify({ name: name, email: credentials.email, password: credentials.password, authcode: Number(credentials.verificationCode) })
                 ,
@@ -68,6 +69,10 @@ const Signup = (props) => {
             method: 'PUT',
             mode: 'cors',
             referrerPolicy: "origin-when-cross-origin",
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+              },
         })
 
         const preConnectResponse = await preConnect.json();
@@ -94,6 +99,10 @@ const Signup = (props) => {
                         method: 'GET',
                         mode: 'cors',
                         referrerPolicy: "origin-when-cross-origin",
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': '*'
+                          },
                     })
                     const md = await response.json()
 
@@ -117,7 +126,8 @@ const Signup = (props) => {
         const response = await fetch('https://data-notify.azurewebsites.net/auth/signup/email', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: credentials.email })
             ,

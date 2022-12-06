@@ -42,7 +42,8 @@ const Contact = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'auth-token': localStorage.getItem('token')
+                'auth-token': localStorage.getItem('token'),
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ subject: query.subject, message: query.message, contactNo: Number(query.contactNo) })
             ,

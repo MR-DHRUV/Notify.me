@@ -57,7 +57,8 @@ function App() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       },
       mode: 'cors',
       referrerPolicy: "origin-when-cross-origin",

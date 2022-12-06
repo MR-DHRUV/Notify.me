@@ -43,7 +43,8 @@ const User = (props) => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'auth-token': localStorage.getItem('token')
+                        'auth-token': localStorage.getItem('token'),
+                        'Access-Control-Allow-Origin': '*'
                     }
                     ,
       mode: 'cors',
@@ -69,7 +70,8 @@ const User = (props) => {
         const response = await fetch('https://data-notify.azurewebsites.net/fogotpassword', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: user.email })
             ,
@@ -94,7 +96,8 @@ const User = (props) => {
         const response = await fetch('https://data-notify.azurewebsites.net/fogotpassword/verify', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: user.email, authcode: Number(credentials.verifyToken), password: credentials.password })
             ,
@@ -125,7 +128,8 @@ const User = (props) => {
         const response = await fetch('https://data-notify.azurewebsites.net/auth/delete/email', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ email: user.email })
             ,
@@ -150,7 +154,8 @@ const User = (props) => {
             const response = await fetch('https://data-notify.azurewebsites.net/auth/delete/email/verify', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
                 },
                 body: JSON.stringify({ email: user.email, authcode: Number(credentials.verifyToken), password: credentials.password })
                 ,

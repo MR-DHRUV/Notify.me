@@ -15,7 +15,8 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       },
     });
     const json = await response.json();
@@ -32,7 +33,8 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
 
       },
       body: JSON.stringify({ title, description, tag })
@@ -61,7 +63,8 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       },
       mode: 'cors',
       referrerPolicy: "origin-when-cross-origin",
@@ -83,7 +86,8 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
 
       },
       body: JSON.stringify({ title, description, tag })
@@ -114,7 +118,8 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': localStorage.getItem('token')
+        'auth-token': localStorage.getItem('token'),
+        'Access-Control-Allow-Origin': '*'
       },
       body : JSON.stringify({time})
       ,
