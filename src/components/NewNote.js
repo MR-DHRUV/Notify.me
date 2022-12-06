@@ -39,7 +39,7 @@ const NewNote = () => {
             addNote(note.title, value, note.tag);
         }
         setNote({ title: "", description: "", tag: "" });
-        history.push('/dashboard')
+        history.push('/notes')
     }
 
     const onChange = (event) => {
@@ -73,7 +73,7 @@ const NewNote = () => {
 
     return (
         <>
-            <section className="py-1 pb-3">
+            <section className={ window.innerWidth > 999 ? "py-1 pb-3" : "py-1 pb-5 mb-5"}>
                 <BackButton/>
                 <div className="container notecontainer">
                     <div className="row mx-auto">

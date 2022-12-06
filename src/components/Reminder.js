@@ -64,10 +64,15 @@ const Reminder = (props) => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
-            getAllReminders()
-            chkPrev()
-            chkUpk()
-            console.log("redimders fetched");
+
+            if (reminders.length === 0 || prevReminders.length === 0) {
+                
+                getAllReminders()
+                chkPrev()
+                chkUpk()
+                console.log("redimders fetched");
+            }
+
         }
         else {
             history.push('/signin');
@@ -83,7 +88,7 @@ const Reminder = (props) => {
             document.getElementById('addBlur').style.display = 'flex';
             document.getElementById('addBlur').style.justifyContent = 'center';
             document.getElementById('getBlur').style.filter = 'blur(10px)';
-            window.scrollTo(0,0);
+            window.scrollTo(0, 0);
             if (window.innerWidth > 1200) {
                 // document.getElementById('addBlur').style.alignItems = 'center';
             }
@@ -101,22 +106,6 @@ const Reminder = (props) => {
 
     const handleAddReminder = async (event) => {
         event.preventDefault()
-        // const timeCheck = isNaN(reminder.time)
-        // const timeToSend = reminder.time.split('-')
-        // if (timeToSend[4] > 60) {
-        //     return document.getElementById('timeWarning').style.display = 'flex'
-        // }
-        // if (timeToSend[3] > 24) {
-        //     return document.getElementById('timeWarning').style.display = 'flex'
-        // }
-        // if (timeToSend[1] > 12) {
-        //     return document.getElementById('timeWarning').style.display = 'flex'
-        // }
-        // if (timeToSend[0] > 31) {
-        //     return document.getElementById('timeWarning').style.display = 'flex'
-        // }
-        // const dateAndTime = new Date(timeToSend[2], (timeToSend[1] - 1), timeToSend[0], timeToSend[3], timeToSend[4], 0);
-
 
         if (reminder.id) {
             editReminder(reminder.id, reminder.title, reminder.description, reminder.time)
@@ -130,7 +119,7 @@ const Reminder = (props) => {
 
 
         setReminder({ time: null, title: '', description: '', id: null })
-        getAllReminders()
+        await getAllReminders();
 
         const dateNI = new Date();
         let ISToffSet = 330; //IST is 5:30; i.e. 60*5+30 = 330 in minutes 
@@ -139,7 +128,7 @@ const Reminder = (props) => {
         // console.log("IST" , ISTTime);
 
         const timeDiffrenceMs = (new Date(reminder.time) - Date.now())
-        console.log("Diffrence : ", timeDiffrenceMs );
+        console.log("Diffrence : ", timeDiffrenceMs);
         // setTimeout(() => {
         // }, timeDiffrenceMs);
 
@@ -153,8 +142,9 @@ const Reminder = (props) => {
             });
         })
 
-        chkPrev()
-        chkUpk()
+        
+        await chkPrev();
+        await chkUpk();
 
     }
 
@@ -201,7 +191,7 @@ const Reminder = (props) => {
                     </div>
                 </div>
             </div>}
-            <div className="container mt-0 pt-0" id='getBlur'>
+            <div className="container mt-4 pt-0" id='getBlur'>
                 {/* <h1 className='haedingTop border-bottom display-4 fw-bold'>Reminders</h1> */}
                 <div className="row mx-auto mt-0 pt-0 border-bottom">
                     <div className="col mt-0 pt-0 myCol">

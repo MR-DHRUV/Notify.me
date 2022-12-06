@@ -11,7 +11,7 @@ const NoteState = (props) => {
 
   //To get all notes
   const getAllNotes = async () => {
-    const response = await fetch('http://localhost:5000/notes/fetch_all_notes', {
+    const response = await fetch('https://data-notify.azurewebsites.net/notes/fetch_all_notes', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const NoteState = (props) => {
   const addNote = async (title, description, tag) => {
 
     //eslint-disable-next-line
-    const response = await fetch('http://localhost:5000/notes/add_note', {
+    const response = await fetch('https://data-notify.azurewebsites.net/notes/add_note', {
 
       method: 'POST',
       headers: {
@@ -54,7 +54,7 @@ const NoteState = (props) => {
     // console.log(localStorage.getItem('token'));
 
     //eslint-disable-next-line
-    const response = await fetch(`http://localhost:5000/notes/delete_note/${id}`, {
+    const response = await fetch(`https://data-notify.azurewebsites.net/notes/delete_note/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const NoteState = (props) => {
   const editNote = async (id, title, description, tag) => {
     //API Call
     //eslint-disable-next-line
-    const response = await fetch(`http://localhost:5000/notes/update_existing_note/${id}`, {
+    const response = await fetch(`https://data-notify.azurewebsites.net/notes/update_existing_note/${id}`, {
 
       method: 'PUT',
       headers: {
@@ -102,7 +102,7 @@ const NoteState = (props) => {
 
     // console.log('calling');
 
-    const response = await fetch(`http://localhost:5000/notes//remind/${id}`, {
+    const response = await fetch(`https://data-notify.azurewebsites.net/notes//remind/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
