@@ -52,7 +52,7 @@ function App() {
 
   const fetchData = async () => {
 
-    const response = await fetch('https://api-data-notify.herokuapp.com/auth/verifyuser', {
+    const response = await fetch('https://data-notify.azurewebsites.net/auth/verifyuser', {
 
       method: 'POST',
       headers: {
@@ -119,7 +119,7 @@ function App() {
                             <h3 className='fw-bold text-primary mb-0 pb-0'>Notify</h3>
                           </a>
                           <a class="navbar-brand brand-logo-mini" href="index.html">
-                            <img src="images/logo-mini.svg" alt="" />
+                            <img src={require("./components/images/logo.png")} width={32} className="py-0 my-0" alt="" />
                           </a>
                         </div>
                       </div>
@@ -197,7 +197,7 @@ function App() {
                 <Route exact path='/signin'><Login showAlert={showAlert} /></Route>
                 <Route exact path='/signup'><Signup showAlert={showAlert} email={email} /></Route>
                 <Route path='/auth/v2/google' component={() => {
-                  window.location.href = 'https://api-data-notify.herokuapp.com/auth/google';
+                  window.location.href = 'https://data-notify.azurewebsites.net/auth/google';
                   return null;
                 }} />
               </Switch>

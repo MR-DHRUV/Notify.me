@@ -7,6 +7,7 @@ import "./CSS/bootstrap.min.css"
 
 
 const Login = (props) => {
+    
     const [credentials, setCredentials] = useState({ email: '', password: '' });
     let history = useHistory();
 
@@ -18,7 +19,7 @@ const Login = (props) => {
         event.preventDefault(); // this will prevent reload
 
 
-        const response = await fetch('https://api-data-notify.herokuapp.com/auth/signin', {
+        const response = await fetch('https://data-notify.azurewebsites.net/auth/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,7 +49,7 @@ const Login = (props) => {
         const authCode = Math.floor(100000 + Math.random() * 90000000);
         const uri = md5(authCode);
         // console.log(uri);
-        const preConnect = await fetch(`https://api-data-notify.herokuapp.com/auth/googlecontext/:${uri}`, {
+        const preConnect = await fetch(`https://data-notify.azurewebsites.net/auth/googlecontext/:${uri}`, {
             method: 'PUT'
         })
 
@@ -72,7 +73,7 @@ const Login = (props) => {
                 // console.log('try block');
 
                 while (data === undefined || data === null) {
-                    const response = await fetch(`https://api-data-notify.herokuapp.com/auth/g/user/${uri}`, {
+                    const response = await fetch(`https://data-notify.azurewebsites.net/auth/g/user/${uri}`, {
                         method: 'GET'
                     })
                     const md = await response.json()

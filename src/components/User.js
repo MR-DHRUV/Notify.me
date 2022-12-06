@@ -38,7 +38,7 @@ const User = (props) => {
 
             const fetchData = async () => {
 
-                const response = await fetch('https://api-data-notify.herokuapp.com/auth/verifyuser', {
+                const response = await fetch('https://data-notify.azurewebsites.net/auth/verifyuser', {
 
                     method: 'POST',
                     headers: {
@@ -63,7 +63,7 @@ const User = (props) => {
     const handleSubmit = async (event) => {
         event.preventDefault(); // this will prevent reload
 
-        const response = await fetch('https://api-data-notify.herokuapp.com/fogotpassword', {
+        const response = await fetch('https://data-notify.azurewebsites.net/fogotpassword', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ const User = (props) => {
     const handleReset = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('https://api-data-notify.herokuapp.com/fogotpassword/verify', {
+        const response = await fetch('https://data-notify.azurewebsites.net/fogotpassword/verify', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ const User = (props) => {
 
     const reqDelete = async (e) => {
         e.preventDefault()
-        const response = await fetch('https://api-data-notify.herokuapp.com/auth/delete/email', {
+        const response = await fetch('https://data-notify.azurewebsites.net/auth/delete/email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -135,7 +135,7 @@ const User = (props) => {
 
         if (warning === true) {
 
-            const response = await fetch('https://api-data-notify.herokuapp.com/auth/delete/email/verify', {
+            const response = await fetch('https://data-notify.azurewebsites.net/auth/delete/email/verify', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

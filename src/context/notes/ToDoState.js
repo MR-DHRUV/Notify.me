@@ -11,7 +11,7 @@ const ToDoSate = (props) => {
 
     //To get all notes
     const getAllList = async () => {
-        const response = await fetch('https://api-data-notify.herokuapp.com/todo/fetch_all_list', {
+        const response = await fetch('https://data-notify.azurewebsites.net/todo/fetch_all_list', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const ToDoSate = (props) => {
     const addList = async (title, date) => {
 
         //eslint-disable-next-line
-        const response = await fetch('https://api-data-notify.herokuapp.com/todo/add_list', {
+        const response = await fetch('https://data-notify.azurewebsites.net/todo/add_list', {
 
             method: 'POST',
             headers: {
@@ -51,7 +51,7 @@ const ToDoSate = (props) => {
     const deleteList = async (id) => {
 
         //eslint-disable-next-line
-        const response = await fetch(`https://api-data-notify.herokuapp.com/todo/delete_list/${id}`, {
+        const response = await fetch(`https://data-notify.azurewebsites.net/todo/delete_list/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const ToDoSate = (props) => {
     const editList = async (id) => {
         //API Call
         //eslint-disable-next-line
-        const response = await fetch(`https://api-data-notify.herokuapp.com/todo/update_existing_list/${id}`, {
+        const response = await fetch(`https://data-notify.azurewebsites.net/todo/update_existing_list/${id}`, {
 
             method: 'PUT',
             headers: {

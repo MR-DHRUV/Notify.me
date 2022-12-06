@@ -38,7 +38,7 @@ const Contact = () => {
         }
 
         // console.log(query);
-        const response = await fetch('https://api-data-notify.herokuapp.com/notes/mailer', {
+        const response = await fetch('https://data-notify.azurewebsites.net/notes/mailer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
