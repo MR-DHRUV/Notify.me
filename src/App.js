@@ -200,7 +200,7 @@ function App() {
                 <Route exact path='/signin'><Login showAlert={showAlert} /></Route>
                 <Route exact path='/signup'><Signup showAlert={showAlert} email={email} /></Route>
                 <Route path='/auth/v2/google' component={() => {
-                  window.location.href = 'https://data-notify.azurewebsites.net/auth/google';
+                  window.location.href = 'https://api-authify.azurewebsites.net/auth/google';
                   return null;
                 }} />
               </Switch>
