@@ -1,38 +1,39 @@
-import Navbar from './components/Navbar';
-import NoteState from './context/notes/NoteState';
-import Alert from './components/Alert';
-import Login from './components/Login';
-import Signup from './components/Signup';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useLocation,
 } from 'react-router-dom'
-import { useState } from 'react';
-import ForgetPassword from './components/ForgetPassword';
-import Footer from './components/Footer';
-import HomePromotion from './components/HomePromotion';
-import User from './components/User';
-import NewNote from './components/NewNote';
-// import BottomNav from './components/BottomNav';
-import ViewNote from './components/ViewNote';
-import Notes from './components/Notes';
-import Reminder from './components/Reminder';
+
+
+import { useState, useEffect } from 'react';
+import { Notifications } from 'react-push-notification';
+
+import ForgetPassword from './components/Auth/ForgetPassword';
+import Footer from './components/Footer/Footer';
+import HomePromotion from './components/Pages/HomePromotion';
+import User from './components/Auth/User';
+import NewNote from './components/Notes/NewNote';
+import ViewNote from './components/Notes/ViewNote';
+import Notes from './components/Notes/Notes';
+import Reminder from './components/Reminders/Reminder';
 import ReminderState from './context/notes/ReminderState';
 import ScrollHandler from './ScrollHandler';
-import AddReminder from './components/AddReminder';
-import Home from './components/Home';
-import Contact from './components/Contact';
-import { Notifications } from 'react-push-notification';
-import { useEffect } from 'react';
-import NavSidebar from './components/NavSidebar';
+import AddReminder from './components/Reminders/AddReminder';
+import Home from './components/Pages/Home';
+import Contact from './components/Pages/Contact';
+import NavSidebar from './components/Navbar/NavSidebar';
+import BottomNav from './components/Navbar/BottomNav';
+import ToDo from './components/ToDo/ToDo';
+import ToDoSate from './context/notes/ToDoState';
+import Navbar from './components/Navbar/Navbar';
+import NoteState from './context/notes/NoteState';
+import Alert from './components/Helpers/Alert';
+import Login from './components/Auth/Login';
+import Signup from './components/Auth/Signup';
+
 import "./components/CSS/style.css"
 import './components/CSS/app.css'
-import BottomNav from './components/BottomNav';
-import ToDo from './components/ToDo';
-import ToDoSate from './context/notes/ToDoState';
 
 function App() {
   const [alert, setAlert] = useState(null);
